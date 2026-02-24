@@ -2,7 +2,7 @@ const settings = {
   packname: 'Knight Bot',
   author: '‎',
   botName: "Knight Bot",
-  botOwner: 'Lee Tech', // Your name
+  botOwner: 'LEE TECH', // Your name
   ownerNumber: '', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
@@ -10,7 +10,7 @@ const settings = {
   storeWriteInterval: 10000,
   description: "This is a bot for managing group commands and automating tasks.",
   version: "3.0.6",
-  updateZipUrl: "https://github.com/mruniquehacker/Knightbot-MD/archive/refs/heads/main.zip",
+  updateZipUrl: "https://github.com/networkserver06-commits/Knightbot-MD/archive/refs/heads/main.zip",
 };
 
 module.exports = settings;
