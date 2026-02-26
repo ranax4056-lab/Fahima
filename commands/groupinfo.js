@@ -1,53 +1,35 @@
 /**
- * The most complete and error-resistant version of the Group Info command.
- * Handles Private Chat errors and Media Rate-limiting (Imgur 429).
+ * Fully stabilized Group Info command.
+ * Uses a safe fallback: sends text-only if the group has no profile picture.
  */
 async function groupInfoCommand(sock, chatId, msg) {
-    // 1. Check if the command is being used in a group
-    const isGroup = chatId.endsWith('@g.us');
-    if (!isGroup) {
+    // 1. Guard check: Only run in groups
+    if (!chatId.endsWith('@g.us')) {
         return await sock.sendMessage(chatId, { text: '❌ This command can only be used in groups!' }, { quoted: msg });
     }
 
     try {
-        // 2. Fetch group metadata
+        // 2. Fetch the metadata safely
         const groupMetadata = await sock.groupMetadata(chatId);
         const participants = groupMetadata.participants || [];
         
-        // 3. Date Formatting
+        // 3. Process Dates and Roles
         const creationDate = groupMetadata.creation 
-            ? new Date(groupMetadata.creation * 1000).toLocaleString('en-GB', { 
-                dateStyle: 'full', 
-                timeStyle: 'short' 
-              }) 
+            ? new Date(groupMetadata.creation * 1000).toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' }) 
             : 'Unknown';
 
-        // 4. Admin & Role Categorization
         const superAdmins = participants.filter(p => p.admin === 'superadmin');
         const regularAdmins = participants.filter(p => p.admin === 'admin');
         const allAdmins = [...superAdmins, ...regularAdmins];
         
-        const owner = groupMetadata.owner || 
-                      superAdmins[0]?.id || 
-                      chatId.split('-')[0] + '@s.whatsapp.net';
+        const owner = groupMetadata.owner || superAdmins[0]?.id || chatId.split('-')[0] + '@s.whatsapp.net';
 
-        // 5. Profile Picture (Handling the 429 Error)
-        let pp;
-        try {
-            pp = await sock.profilePictureUrl(chatId, 'image');
-        } catch {
-            // Use a stable, high-availability placeholder or a local path if you have one
-            pp = 'https://telegra.ph/file/241d7161fb85743b1ee6c.jpg'; 
-        }
-
-        // 6. Settings & Permissions
+        // 4. Process Settings
         const canSendMessages = groupMetadata.announce ? '🔒 Admins Only' : '🔓 Everyone';
         const canEditInfo = groupMetadata.restrict ? '🔒 Admins Only' : '🔓 Everyone';
-        const ephemeral = groupMetadata.ephemeralDuration 
-            ? `⏳ ${groupMetadata.ephemeralDuration / 86400} Days` 
-            : '❌ Off';
+        const ephemeral = groupMetadata.ephemeralDuration ? `⏳ ${groupMetadata.ephemeralDuration / 86400} Days` : '❌ Off';
 
-        // 7. Build the Text
+        // 5. Build the Information Text
         const text = `
 ┌──「 *GROUP ANALYSIS* 」
 ▢ *🔖 SUBJECT:* ${groupMetadata.subject}
@@ -72,21 +54,31 @@ ${allAdmins.map((v, i) => `   ${i + 1}. @${v.id.split('@')[0]} ${v.admin === 'su
 ${groupMetadata.desc?.toString() || 'No description provided.'}
 └──────────────────────────`.trim();
 
-        // 8. Send Message
-        await sock.sendMessage(chatId, {
-            image: { url: pp },
-            caption: text,
-            mentions: [...allAdmins.map(v => v.id), owner]
-        }, { quoted: msg });
+        // Prepare the mentions array
+        const mentions = [...allAdmins.map(v => v.id), owner];
+
+        // 6. Fetch Profile Picture Safely (NO EXTERNAL URLS)
+        let ppUrl = null;
+        try {
+            ppUrl = await sock.profilePictureUrl(chatId, 'image');
+        } catch (err) {
+            // If fetching the image fails, ppUrl just stays null. No crash!
+            console.log(`No profile picture found for ${chatId}, sending text only.`);
+        }
+
+        // 7. Send the Message Based on Image Availability
+        if (ppUrl) {
+            // Send with image
+            await sock.sendMessage(chatId, { image: { url: ppUrl }, caption: text, mentions }, { quoted: msg });
+        } else {
+            // Fallback: Send plain text (No 404 errors!)
+            await sock.sendMessage(chatId, { text: text, mentions }, { quoted: msg });
+        }
 
     } catch (error) {
-        console.error('ERROR in groupInfoCommand:', error);
-        
-        // If image sending fails again, fallback to TEXT ONLY so the command still works
-        await sock.sendMessage(chatId, { 
-            text: '⚠️ *Note:* Image could not be loaded, but here is the info:\n\n' + text,
-            mentions: [...participants.filter(p => p.admin).map(v => v.id)]
-        }, { quoted: msg });
+        // 8. Safe Error Handling
+        console.error('CRITICAL ERROR in groupInfoCommand:', error);
+        await sock.sendMessage(chatId, { text: '❌ Failed to gather group info. I might not have access to the metadata.' }, { quoted: msg });
     }
 }
 
