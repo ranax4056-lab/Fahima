@@ -5,10 +5,10 @@ const path = require('path');
 async function helpCommand(sock, chatId, message) {
     const helpMessage = `
 ╭┈──〔 *𓆩ု𝐒𝐇𝐀𝐇𝐈𝐍𓆪* 〕┈──⊷
-│  *🤖 ${settings.botName || 'KnightBot-MD'}*  
+│🕊️  ${settings.botName || 'KnightBot-MD'}*  
 │🎐 *ᴠᴇʀsɪᴏɴ:*  *${settings.version || '3.0.0'}*
-│  by ${settings.botOwner || 'Mr Unique Hacker'}
-│   YT : ${global.ytch}
+│🎗️ʙʏ ${settings.botOwner || 'Mr Unique Hacker'}
+│💎ʏᴛ : ${global.ytch}
 │ 
 │ 
 │ 
