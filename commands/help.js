@@ -18,11 +18,11 @@ async function helpCommand(sock, chatId, message) {
 
 `『 Available Commands: 』`
 
-╔═══════════════════╗
+╭───────────────────⳹
 🌐 *General Commands*:
-║ ➤ .help or .menu
-║ ➤ .ping
-║ ➤ .alive
+┋ ⬡ .help or .menu
+┋ ⬡ .ping
+┋ ⬡ .alive
 ║ ➤ .tts <text>
 ║ ➤ .owner
 ║ ➤ .joke
