@@ -204,13 +204,13 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ғᴀᴄᴇᴘᴀʟᴍ*
 *╰───────────────────⳹*
 `『Github Commands: 』`
-╔═══════════════════╗
-║ ➤ .git
-║ ➤ .github
-║ ➤ .sc
-║ ➤ .script
-║ ➤ .repo
-╚═══════════════════╝
+*╭───────────────────⳹*
+*┋ ⬡ .ɢɪᴛ*
+*┋ ⬡ .ɢɪᴛʜᴜʙ*
+*┋ ⬡ .sᴄ*
+*┋ ⬡ .sᴄʀɪᴘᴛ*
+*┋ ⬡ .ʀᴇᴘᴏ*
+*╰───────────────────⳹*
 
 Join our channel for updates:`;
 
