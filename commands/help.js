@@ -128,19 +128,19 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sᴏʀᴀ <ᴘʀᴏᴍᴘᴛ>*
 *╰───────────────────⳹*
 `『 Fun Commands:』`
-╔═══════════════════╗
-║ ➤ .compliment @user
-║ ➤ .insult @user
-║ ➤ .flirt 
-║ ➤ .shayari
-║ ➤ .goodnight
-║ ➤ .roseday
-║ ➤ .character @user
-║ ➤ .wasted @user
-║ ➤ .ship @user
-║ ➤ .simp @user
-║ ➤ .stupid @user [text]
-╚═══════════════════╝
+*╭───────────────────⳹*
+*┋ ⬡ .ᴄᴏᴍᴘʟɪᴍᴇɴᴛ @ᴜsᴇʀ*
+*┋ ⬡ .ɪɴsᴜʟᴛ @ᴜsᴇʀ*
+*┋ ⬡ .ғʟɪʀᴛ*
+*┋ ⬡ .sʜᴀʏᴀʀɪ*
+*┋ ⬡ .ɢᴏᴏᴅɴɪɢʜᴛ*
+*┋ ⬡ .ʀᴏsᴇᴅᴀʏ*
+*┋ ⬡ .ᴄʜᴀʀᴀᴄᴛᴇʀ @ᴜsᴇʀ*
+*┋ ⬡ .ᴡᴀsᴛᴇᴅ @ᴜsᴇʀ*
+*┋ ⬡ .sʜɪᴘ @ᴜsᴇʀ*
+*┋ ⬡ .sɪᴍᴘ @ᴜsᴇʀ*
+*┋ ⬡ .sᴛᴜᴘɪᴅ @ᴜsᴇʀ [ᴛᴇxᴛ]*
+*╰───────────────────⳹*
 
 ╔═══════════════════╗
 🔤 *Textmaker*:
