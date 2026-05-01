@@ -1,33 +1,72 @@
 const settings = require("../settings");
+
 async function aliveCommand(sock, chatId, message) {
+
     try {
-        const message1 = `*🤖 Knight Bot is Active!*\n\n` +
-                       `*Version:* ${settings.version}\n` +
-                       `*Status:* Online\n` +
-                       `*Mode:* Public\n\n` +
-                       `*🌟 Features:*\n` +
-                       `• Group Management\n` +
-                       `• Antilink Protection\n` +
-                       `• Fun Commands\n` +
-                       `• And more!\n\n` +
-                       `Type *.menu* for full command list`;
+
+        const botNumber = sock.user.id.split(":")[0];
+
+        const aliveText =
+
+`*╭━━━〔🍓𝐁𝕺𝐓 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃〕━━━✦*
+
+*┃🌱 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 : ${botNumber}*
+
+*┃👻 𝐏𝐑𝐄𝐅𝐈𝐗 : .*
+
+*┃🔮 𝐌𝐎𝐃𝐄 : 𝐏𝐫𝐢𝐯𝐚𝐭𝐞*
+
+*┃🎐 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 : ${settings.version}*
+
+*┃👑 𝐎𝐖𝐍𝐄𝐑 :*~_🪀𝐗𝐭𝐲𝐥𝐢𝐬𝐡_ღ꙰𝐒𝐡𝐚𝐡𝐢𝐧࿐👑_~*
+
+*╰━━━━━━━━━━━━━━━━━━╯*
+
+*╭━━━〔🛠️ 𝗧𝗜𝗣𝗦〕━━━━✦*
+*┃✧ 𝐓𝐘𝐏𝐄 .menu 𝐓𝐎 𝐕𝐈𝐄𝐖 𝐀𝐋𝐋*
+*┃✧ 𝐈𝐍𝐂𝐋𝐔𝐃𝐄𝐒 𝐅𝐔𝐍, 𝐆𝐀𝐌𝐄, 𝐒𝐓𝐘𝐋𝐄*
+*╰━━━━━━━━━━━━━━━━━╯*`;
 
         await sock.sendMessage(chatId, {
-            text: message1,
+
+            text: aliveText,
+
             contextInfo: {
+
                 forwardingScore: 999,
+
                 isForwarded: true,
+
                 forwardedNewsletterMessageInfo: {
+
                     newsletterJid: '120363161513685998@newsletter',
-                    newsletterName: 'KnightBot MD',
+
+                    newsletterName: 'SHAHIN RANA',
+
                     serverMessageId: -1
+
                 }
+
             }
+
         }, { quoted: message });
-    } catch (error) {
-        console.error('Error in alive command:', error);
-        await sock.sendMessage(chatId, { text: 'Bot is alive and running!' }, { quoted: message });
+
+    } catch (err) {
+
+        console.error("Alive Command Error:", err);
+
+        await sock.sendMessage(
+
+            chatId,
+
+            { text: "🤖 Bot is connected and running!" },
+
+            { quoted: message }
+
+        );
+
     }
+
 }
 
 module.exports = aliveCommand;
