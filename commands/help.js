@@ -109,9 +109,8 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ᴋᴏʀᴇᴀ*
 *┋ ⬡ .ʜɪᴊᴀʙ*
 *╰───────────────────⳹*
-
+`『Game Commands:』`
 ╔═══════════════════╗
-🎮 *Game Commands*:
 ║ ➤ .tictactoe @user
 ║ ➤ .hangman
 ║ ➤ .guess <letter>
