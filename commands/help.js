@@ -212,7 +212,7 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ʀᴇᴘᴏ*
 *╰───────────────────⳹*
 
-Join our channel for updates:`;
+*~_Made with love by Shahin ♡Rana♡😩🫶_~*:`;
 
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpg');
@@ -228,7 +228,7 @@ Join our channel for updates:`;
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363161513685998@newsletter',
-                        newsletterName: 'KnightBot MD',
+                        newsletterName: 'sʜᴀʜɪɴツʀᴀɴᴀ',
                         serverMessageId: -1
                     }
                 }
@@ -242,7 +242,7 @@ Join our channel for updates:`;
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363161513685998@newsletter',
-                        newsletterName: 'KnightBot MD by Mr Unique Hacker',
+                        newsletterName: 'sʜᴀʜɪɴツʀᴀɴᴀ ',
                         serverMessageId: -1
                     } 
                 }
