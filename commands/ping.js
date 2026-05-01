@@ -20,8 +20,19 @@ function formatTime(seconds) {
 
 async function pingCommand(sock, chatId, message) {
     try {
+
+        // 🌀 Loading reaction
+        await sock.sendMessage(chatId, {
+            react: {
+                text: '🌀',
+                key: message.key
+            }
+        });
+
         const start = Date.now();
+
         await sock.sendMessage(chatId, { text: 'Pong!' }, { quoted: message });
+
         const end = Date.now();
         const ping = Math.round((end - start) / 2);
 
@@ -29,18 +40,36 @@ async function pingCommand(sock, chatId, message) {
         const uptimeFormatted = formatTime(uptimeInSeconds);
 
         const botInfo = `
-*╭┈─「 *💖 🌙⧫𝐏ᮀ𝐎ᮁ𝐍ᮀ𝐆ᮁ  💗* 」┈❍*
+*╭┈─「 *💖 🌙⧫𝐏ᮀ𝐎ᮁ𝐍ᮀ𝐆ᮁ 💗* 」┈❍*
 *├◈* ⚡ *𝐑𝐞𝐬𝐩𝐨𝐧𝐜𝐞* ➳❥ ${ping} ms
-*├◈* ⏱️ *𝐒𝐭𝐚𝐭𝐮𝐬*:  ➳❥ ${uptimeFormatted}
-*├◈* 💎 *𝐕𝐞𝐫𝐬𝐢𝐨𝐧*  ➳❥ v${settings.version}
+*├◈* ⏱️ *𝐒𝐭𝐚𝐭𝐮𝐬* ➳❥ ${uptimeFormatted}
+*├◈* 💎 *𝐕𝐞𝐫𝐬𝐢𝐨𝐧* ➳❥ v${settings.version}
 *╰─➤𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲*⎯⃝‎‎‎𝐒𝐡𝐚𝐡𝐢𝐧 𝐑𝐚𝐧𝐚♡➪`.trim();
 
-        // Reply to the original message with the bot info
-        await sock.sendMessage(chatId, { text: botInfo},{ quoted: message });
+        await sock.sendMessage(chatId, { text: botInfo }, { quoted: message });
+
+        // 🕊️ Success reaction
+        await sock.sendMessage(chatId, {
+            react: {
+                text: '🕊️',
+                key: message.key
+            }
+        });
 
     } catch (error) {
         console.error('Error in ping command:', error);
-        await sock.sendMessage(chatId, { text: '❌ Failed to get bot status.' });
+
+        // ❌ Error reaction
+        await sock.sendMessage(chatId, {
+            react: {
+                text: '❌',
+                key: message.key
+            }
+        });
+
+        await sock.sendMessage(chatId, {
+            text: '❌ Failed to get bot status.'
+        });
     }
 }
 
