@@ -142,26 +142,26 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sᴛᴜᴘɪᴅ @ᴜsᴇʀ [ᴛᴇxᴛ]*
 *╰───────────────────⳹*
 `『 Textmaker:』`
-╔═══════════════════╗
-║ ➤ .metallic <text>
-║ ➤ .ice <text>
-║ ➤ .snow <text>
-║ ➤ .impressive <text>
-║ ➤ .matrix <text>
-║ ➤ .light <text>
-║ ➤ .neon <text>
-║ ➤ .devil <text>
-║ ➤ .purple <text>
-║ ➤ .thunder <text>
-║ ➤ .leaves <text>
-║ ➤ .1917 <text>
-║ ➤ .arena <text>
-║ ➤ .hacker <text>
-║ ➤ .sand <text>
-║ ➤ .blackpink <text>
-║ ➤ .glitch <text>
-║ ➤ .fire <text>
-╚═══════════════════╝
+*╭───────────────────⳹*
+*┋ ⬡ .ᴍᴇᴛᴀʟʟɪᴄ <ᴛᴇxᴛ>*
+*┋ ⬡ .ɪᴄᴇ <ᴛᴇxᴛ>*
+*┋ ⬡ .sɴᴏᴡ <ᴛᴇxᴛ>*
+*┋ ⬡ .ɪᴍᴘʀᴇssɪᴠᴇ <ᴛᴇxᴛ>*
+*┋ ⬡ .ᴍᴀᴛʀɪx <ᴛᴇxᴛ>*
+*┋ ⬡ .ʟɪɢʜᴛ <ᴛᴇxᴛ>*
+*┋ ⬡ .ɴᴇᴏɴ <ᴛᴇxᴛ>*
+*┋ ⬡ .ᴅᴇᴠɪʟ <ᴛᴇxᴛ>*
+*┋ ⬡ .ᴘᴜʀᴘʟᴇ <ᴛᴇxᴛ>*
+*┋ ⬡ .ᴛʜᴜɴᴅᴇʀ <ᴛᴇxᴛ>*
+*┋ ⬡ .ʟᴇᴀᴠᴇs <ᴛᴇxᴛ>*
+*┋ ⬡ .1917 <ᴛᴇxᴛ>*
+*┋ ⬡ .ᴀʀᴇɴᴀ <ᴛᴇxᴛ>*
+*┋ ⬡ .ʜᴀᴄᴋᴇʀ <ᴛᴇxᴛ>*
+*┋ ⬡ .sᴀɴᴅ <ᴛᴇxᴛ>*
+*┋ ⬡ .ʙʟᴀᴄᴋᴘɪɴᴋ <ᴛᴇxᴛ>*
+*┋ ⬡ .ɢʟɪᴛᴄʜ <ᴛᴇxᴛ>*
+*┋ ⬡ .ғɪʀᴇ <ᴛᴇxᴛ>*
+*╰───────────────────⳹*
 
 ╔═══════════════════╗
 📥 *Downloader*:
