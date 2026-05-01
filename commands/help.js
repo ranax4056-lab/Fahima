@@ -100,9 +100,8 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ɪɢs <ɪɴsᴛᴀ ʟɪɴᴋ>*
 *┋ ⬡ .ɪɢsᴄ <ɪɴsᴛᴀ ʟɪɴᴋ>*
 *╰───────────────────⳹*
-
+`『Pies Commands:』`
 ╔═══════════════════╗
-🖼️ *Pies Commands*:
 ║ ➤ .pies <country>
 ║ ➤ .china 
 ║ ➤ .indonesia 
