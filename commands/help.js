@@ -85,8 +85,8 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sᴇᴛᴍᴇɴᴛɪᴏɴ <ʀᴇᴘʟʏ ᴛᴏ ᴍsɢ>*
 *┋ ⬡ .ᴍᴇɴᴛɪᴏɴ <ᴏɴ/ᴏғғ>*
 *╰───────────────────⳹*
+`『Image/Sticker Commands:』`
 ╔═══════════════════╗
-🎨 *Image/Sticker Commands*:
 ║ ➤ .blur <image>
 ║ ➤ .simage <reply to sticker>
 ║ ➤ .sticker <reply to image>
