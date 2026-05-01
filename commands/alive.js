@@ -1,4 +1,4 @@
-const settings = require("../settings");
+uhconst settings = require("../settings");
 
 async function aliveCommand(sock, chatId, message) {
 
