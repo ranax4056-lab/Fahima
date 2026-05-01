@@ -163,19 +163,18 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ғɪʀᴇ <ᴛᴇxᴛ>*
 *╰───────────────────⳹*
 `『 Downloader:』`
+*╭───────────────────⳹*
+*┋ ⬡ .ᴘʟᴀʏ <sᴏɴɢ_ɴᴀᴍᴇ>*
+*┋ ⬡ .sᴏɴɢ <sᴏɴɢ_ɴᴀᴍᴇ>*
+*┋ ⬡ .sᴘᴏᴛɪғʏ <ǫᴜᴇʀʏ>*
+*┋ ⬡ .ɪɴsᴛᴀɢʀᴀᴍ <ʟɪɴᴋ>*
+*┋ ⬡ .ғᴀᴄᴇʙᴏᴏᴋ <ʟɪɴᴋ>*
+*┋ ⬡ .ᴛɪᴋᴛᴏᴋ <ʟɪɴᴋ>*
+*┋ ⬡ .ᴠɪᴅᴇᴏ <sᴏɴɢ_ɴᴀᴍᴇ>*
+*┋ ⬡ .ʏᴛᴍᴘ4 <ʟɪɴᴋ>*
+*╰───────────────────⳹*
+`『 MISC: 』`
 ╔═══════════════════╗
-║ ➤ .play <song_name>
-║ ➤ .song <song_name>
-║ ➤ .spotify <query>
-║ ➤ .instagram <link>
-║ ➤ .facebook <link>
-║ ➤ .tiktok <link>
-║ ➤ .video <song name>
-║ ➤ .ytmp4 <Link>
-╚═══════════════════╝
-
-╔═══════════════════╗
-🧩 *MISC*:
 ║ ➤ .heart
 ║ ➤ .horny
 ║ ➤ .circle
