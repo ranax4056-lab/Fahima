@@ -141,9 +141,8 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sɪᴍᴘ @ᴜsᴇʀ*
 *┋ ⬡ .sᴛᴜᴘɪᴅ @ᴜsᴇʀ [ᴛᴇxᴛ]*
 *╰───────────────────⳹*
-
+`『 Textmaker:』`
 ╔═══════════════════╗
-🔤 *Textmaker*:
 ║ ➤ .metallic <text>
 ║ ➤ .ice <text>
 ║ ➤ .snow <text>
