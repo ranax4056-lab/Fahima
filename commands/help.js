@@ -65,7 +65,7 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sᴇᴛɢɴᴀᴍᴇ <ɴᴇᴡ ɴᴀᴍᴇ>*
 *┋ ⬡ .sᴇᴛɢᴘᴘ (ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ)*
 *╰───────────────────⳹*
-
+`『Owner Commands』`
 ╔═══════════════════╗
 🔒 *Owner Commands*:
 ║ ➤ .mode <public/private>
