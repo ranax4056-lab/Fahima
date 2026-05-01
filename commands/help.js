@@ -127,9 +127,8 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ғʟᴜx <ᴘʀᴏᴍᴘᴛ>*
 *┋ ⬡ .sᴏʀᴀ <ᴘʀᴏᴍᴘᴛ>*
 *╰───────────────────⳹*
-
+`『 Fun Commands:』`
 ╔═══════════════════╗
-🎯 *Fun Commands*:
 ║ ➤ .compliment @user
 ║ ➤ .insult @user
 ║ ➤ .flirt 
