@@ -86,20 +86,20 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .ᴍᴇɴᴛɪᴏɴ <ᴏɴ/ᴏғғ>*
 *╰───────────────────⳹*
 `『Image/Sticker Commands:』`
-╔═══════════════════╗
-║ ➤ .blur <image>
-║ ➤ .simage <reply to sticker>
-║ ➤ .sticker <reply to image>
-║ ➤ .removebg
-║ ➤ .remini
-║ ➤ .crop <reply to image>
-║ ➤ .tgsticker <Link>
-║ ➤ .meme
-║ ➤ .take <packname> 
-║ ➤ .emojimix <emj1>+<emj2>
-║ ➤ .igs <insta link>
-║ ➤ .igsc <insta link>
-╚═══════════════════╝  
+*╭───────────────────⳹*
+*┋ ⬡ .ʙʟᴜʀ <ɪᴍᴀɢᴇ>*
+*┋ ⬡ .sɪᴍᴀɢᴇ <ʀᴇᴘʟʏ ᴛᴏ sᴛɪᴄᴋᴇʀ>*
+*┋ ⬡ .sᴛɪᴄᴋᴇʀ <ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ>*
+*┋ ⬡ .ʀᴇᴍᴏᴠᴇʙɢ*
+*┋ ⬡ .ʀᴇᴍɪɴɪ*
+*┋ ⬡ .ᴄʀᴏᴘ <ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ>*
+*┋ ⬡ .ᴛɢsᴛɪᴄᴋᴇʀ <ʟɪɴᴋ>*
+*┋ ⬡ .ᴍᴇᴍᴇ*
+*┋ ⬡ .ᴛᴀᴋᴇ <ᴘᴀᴄᴋɴᴀᴍᴇ>*
+*┋ ⬡ .ᴇᴍᴏᴊɪᴍɪx <ᴇᴍᴊ1>+<ᴇᴍᴊ2>*
+*┋ ⬡ .ɪɢs <ɪɴsᴛᴀ ʟɪɴᴋ>*
+*┋ ⬡ .ɪɢsᴄ <ɪɴsᴛᴀ ʟɪɴᴋ>*
+*╰───────────────────⳹*
 
 ╔═══════════════════╗
 🖼️ *Pies Commands*:
