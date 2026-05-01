@@ -66,27 +66,25 @@ async function helpCommand(sock, chatId, message) {
 *┋ ⬡ .sᴇᴛɢᴘᴘ (ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ)*
 *╰───────────────────⳹*
 `『Owner Commands』`
-╔═══════════════════╗
-🔒 *Owner Commands*:
-║ ➤ .mode <public/private>
-║ ➤ .clearsession
-║ ➤ .antidelete
-║ ➤ .cleartmp
-║ ➤ .update
-║ ➤ .settings
-║ ➤ .setpp <reply to image>
-║ ➤ .autoreact <on/off>
-║ ➤ .autostatus <on/off>
-║ ➤ .autostatus react <on/off>
-║ ➤ .autotyping <on/off>
-║ ➤ .autoread <on/off>
-║ ➤ .anticall <on/off>
-║ ➤ .pmblocker <on/off/status>
-║ ➤ .pmblocker setmsg <text>
-║ ➤ .setmention <reply to msg>
-║ ➤ .mention <on/off>
-╚═══════════════════╝
-
+*╭───────────────────⳹*
+*┋ ⬡ .ᴍᴏᴅᴇ <ᴘᴜʙʟɪᴄ/ᴘʀɪᴠᴀᴛᴇ>*
+*┋ ⬡ .ᴄʟᴇᴀʀsᴇssɪᴏɴ*
+*┋ ⬡ .ᴀɴᴛɪᴅᴇʟᴇᴛᴇ*
+*┋ ⬡ .ᴄʟᴇᴀʀᴛᴍᴘ*
+*┋ ⬡ .ᴜᴘᴅᴀᴛᴇ*
+*┋ ⬡ .sᴇᴛᴛɪɴɢs*
+*┋ ⬡ .sᴇᴛᴘᴘ <ʀᴇᴘʟʏ ᴛᴏ ɪᴍᴀɢᴇ>*
+*┋ ⬡ .ᴀᴜᴛᴏʀᴇᴀᴄᴛ <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴀᴜᴛᴏsᴛᴀᴛᴜs <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴀᴜᴛᴏsᴛᴀᴛᴜs ʀᴇᴀᴄᴛ <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴀᴜᴛᴏᴛʏᴘɪɴɢ <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴀᴜᴛᴏʀᴇᴀᴅ <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴀɴᴛɪᴄᴀʟʟ <ᴏɴ/ᴏғғ>*
+*┋ ⬡ .ᴘᴍʙʟᴏᴄᴋᴇʀ <ᴏɴ/ᴏғғ/sᴛᴀᴛᴜs>*
+*┋ ⬡ .ᴘᴍʙʟᴏᴄᴋᴇʀ sᴇᴛᴍsɢ <ᴛᴇxᴛ>*
+*┋ ⬡ .sᴇᴛᴍᴇɴᴛɪᴏɴ <ʀᴇᴘʟʏ ᴛᴏ ᴍsɢ>*
+*┋ ⬡ .ᴍᴇɴᴛɪᴏɴ <ᴏɴ/ᴏғғ>*
+*╰───────────────────⳹*
 ╔═══════════════════╗
 🎨 *Image/Sticker Commands*:
 ║ ➤ .blur <image>
