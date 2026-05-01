@@ -4,11 +4,11 @@ const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
     const helpMessage = `
-*╭┈──〔 *𓆩ု𝐒𝐇𝐀𝐇𝐈𝐍𓆪* 〕┈──⊷*
+*╭┈──〔 *𓆩ု𝐒𝐇𝐀𝐇𝐈𝐍𓆪* 〕┈──⊷
 *│🕊️ ${settings.botName || 'sʜᴀʜɪɴツʀᴀɴᴀ'}*  
 *│🎐 ᴠᴇʀsɪᴏɴ:*  *${settings.version || '3.0.0'}*
 *│🎗️ ʙʏ* ${settings.botOwner || 'sʜᴀʜɪɴツʀᴀɴᴀ'}
-*│💎 ʏᴛ:* *𖣘xᴛʏʟɪsʜ ʀᴀɴᴀ*࿐ツ
+*│💎 ʏᴛ:* *𝐗ᴛʏʟɪsʜ ʀᴀɴᴀ*࿐ツ
 *│💠 ᴍᴏᴅᴇ:* *ᴘʀɪᴠᴀᴛᴇツ*
 *│🪄 ᴘʀᴇғɪx:* .
 *│✨ ᴜsᴇʀ:* *ʜᴇʟʟᴏᴡ ᴜsᴇʀツ*
