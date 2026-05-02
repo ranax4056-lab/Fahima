@@ -32,14 +32,13 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
         const ownerTag = ownerJid ? `@${ownerJid.split('@')[0]}` : 'Not Found';
 
         const demoteMessage =
-`╭─〔 *⚡ Admin Event* 〕
-├─ ${adminTag} has demoted ${usernames.join(', ')}
-├─ Group: ${groupName}
-├─ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
-├─ 😢 
-│
+`╭══〔 *⚡ Admin Event* 〕
+┋●➪ ${adminTag} has demoted ${demotedUsers.join(', ')}
+┃●➪ Group: ${groupName}
+┋●➪ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
+┃●➪ 😢*уσυ ∂ємσтє∂ вєттєя ℓυ¢к ηєχт тιмє* 😞         
 ╰─➤ Powered by ~⎯͢⎯⃝🩷➪‎‎‎Shahin Rana♡●➪`;
-
+      
         await sock.sendMessage(chatId, {
             text: demoteMessage,
             mentions: [...userToDemote, promoterJid, ownerJid].filter(Boolean)
@@ -83,13 +82,11 @@ async function handleDemotionEvent(sock, groupId, participants, author) {
         if (ownerJid) mentionList.push(ownerJid);
 
         const demoteMessage =
-`╭─〔 *⚡ Admin Event* 〕
+`╭══〔 *⚡ Admin Event* 〕
 ┋●➪ ${adminTag} has demoted ${demotedUsers.join(', ')}
-├─ Group: ${groupName}
-├─ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
-│
-├─ 😢 
-│         
+┃●➪ Group: ${groupName}
+┋●➪ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
+┃●➪ 😢*уσυ ∂ємσтє∂ вєттєя ℓυ¢к ηєχт тιмє* 😞         
 ╰─➤ Powered by ~⎯͢⎯⃝🩷➪‎‎‎Shahin Rana♡●➪`;
 
         await sock.sendMessage(groupId, {
