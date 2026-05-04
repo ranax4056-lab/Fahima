@@ -1,4 +1,4 @@
-uhconst settings = require("../settings");
+const settings = require("../settings");
 
 async function aliveCommand(sock, chatId, message) {
 
@@ -9,19 +9,12 @@ async function aliveCommand(sock, chatId, message) {
         const aliveText =
 
 `*╭━━━〔🍓𝐁𝕺𝐓 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃〕━━━✦*
-
 *┃🌱 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 : ${botNumber}*
-
 *┃👻 𝐏𝐑𝐄𝐅𝐈𝐗 : .*
-
 *┃🔮 𝐌𝐎𝐃𝐄 : 𝐏𝐫𝐢𝐯𝐚𝐭𝐞*
-
 *┃🎐 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 : ${settings.version}*
-
 *┃👑 𝐎𝐖𝐍𝐄𝐑 :*~_🪀𝐗𝐭𝐲𝐥𝐢𝐬𝐡_ღ꙰𝐒𝐡𝐚𝐡𝐢𝐧࿐👑_~*
-
 *╰━━━━━━━━━━━━━━━━━━╯*
-
 *╭━━━〔🛠️ 𝗧𝗜𝗣𝗦〕━━━━✦*
 *┃✧ 𝐓𝐘𝐏𝐄 .menu 𝐓𝐎 𝐕𝐈𝐄𝐖 𝐀𝐋𝐋*
 *┃✧ 𝐈𝐍𝐂𝐋𝐔𝐃𝐄𝐒 𝐅𝐔𝐍, 𝐆𝐀𝐌𝐄, 𝐒𝐓𝐘𝐋𝐄*
