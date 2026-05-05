@@ -15,9 +15,9 @@ async function tagAllCommand(sock, chatId, senderId, message) {
         let count = 1;
 
         let messageText = `
-🕊️𝐆𝐑𝐎𝐔𝐏 : ${groupMetadata.subject}
-🕊️ 𝐌𝐄𝐌𝐁𝐄𝐑𝐒 : ${members.length}
-🕊️ 𝐌𝐄𝐒𝐒𝐀𝐆𝐄 : 💗💗 αттєηтιση єνєяуσηє! 💗!💗
+🕊️ 𝗚ʀσυρ : ${groupMetadata.subject}
+🕊️ мємвєяѕ : ${members.length}
+🕊️ мєѕѕαgє : 💗💗 αттєηтιση єνєяуσηє! 💗!💗
 
 ╭┈─「 ɦเ αℓℓ ƒɾเεɳ∂ร 🥰 」┈❍
 `;
