@@ -16,29 +16,31 @@ async function staffCommand(sock, chatId, msg) {
         const groupAdmins = participants.filter(p => p.admin);
 
         // Owner of the group
-        const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || chatId.split('-')[0] + '@s.whatsapp.net';
+        const owner = groupMetadata.owner || 
+            groupAdmins.find(p => p.admin === 'superadmin')?.id || 
+            chatId.split('-')[0] + '@s.whatsapp.net';
 
-        // Emoji array (cycle through for fun)
+        // Emoji array
         const emojis = ['🪀','👀','🍿','🐋','🧃','🎀','🍓','🎐','🍦','✨'];
         
-        // Fancy header with dynamic group name
+        // Header
         const header = `*▢ GROUP : ${groupMetadata.subject}*\n*▢ ADMINS : ${groupAdmins.length}*\n*▢ MESSAGE : ATTENTION ADMINS*`;
 
-        // Build fancy admin list with emojis
+        // Admin list
         let listAdminText = '╭┈─「 αℓℓ α∂ɱเɳร 👑 」┈❍\n';
         groupAdmins.forEach((admin, index) => {
-            const emoji = emojis[index % emojis.length]; // Cycle emojis
+            const emoji = emojis[index % emojis.length];
             listAdminText += `│${emoji} @${admin.id.split('@')[0]}\n`;
         });
 
-        // Add owner at the end with special emoji
+        // Add owner
         listAdminText += `│👑 @${owner.split('@')[0]}\n`;
         listAdminText += '╰────────────❍';
 
-        // Compose final text
-        const text = `${header}\n\n${listAdminText}`;
+        // Final text with stylish powered by
+        const text = `${header}\n\n${listAdminText}\n\n✦👑 ρσωєяє∂ ву ѕнαнιη яαηα 👑`;
 
-        // Send the message with image and mentions
+        // Send message
         await sock.sendMessage(chatId, {
             image: { url: pp },
             caption: text,
