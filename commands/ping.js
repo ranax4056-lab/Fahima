@@ -31,7 +31,9 @@ async function pingCommand(sock, chatId, message) {
 
         const start = Date.now();
 
-        await sock.sendMessage(chatId, { text: '*●━➢𝐏ɪɴɪɴɢ-//🌚🎀*' }, { quoted: message });
+        await sock.sendMessage(chatId, { 
+            text: '* *⎯͢✧🫣 𝐏ɪɴɢɪɴɢ - //* 🌚🎀 *' 
+        }, { quoted: message });
 
         const end = Date.now();
         const ping = Math.round((end - start) / 2);
@@ -40,13 +42,16 @@ async function pingCommand(sock, chatId, message) {
         const uptimeFormatted = formatTime(uptimeInSeconds);
 
         const botInfo = `
-*╭┈─「 *💖 🌙⧫𝐏ᮀ𝐎ᮁ𝐍ᮀ𝐆ᮁ 💗* 」┈❍*
-*├◈* ⚡ *𝐑𝐞𝐬𝐩𝐨𝐧𝐜𝐞* ➳❥ ${ping} ms
-*├◈* ⏱️ *𝐒𝐭𝐚𝐭𝐮𝐬* ➳❥ ${uptimeFormatted}
-*├◈* 💎 *𝐕𝐞𝐫𝐬𝐢𝐨𝐧* ➳❥ v${settings.version}
-*╰─➤𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲*⎯⃝‎‎‎𝐒𝐡𝐚𝐡𝐢𝐧 𝐑𝐚𝐧𝐚♡➪`.trim();
+*⎯͢✧💖 𝐏ɪɴɢ 𝐒ᴛᴀᴛᴜs 🌙🐱*
+*┃⚡ 𝐑ᴇsᴘᴏɴsᴇ : ${ping} ms*
+*┃⏱️ 𝐒ᴛᴀᴛᴜs : ${uptimeFormatted}*
+*┃💎 𝐕ᴇʀsɪᴏɴ : v${settings.version}*
+*┃👑 𝐎ᴡɴᴇʀ : ⎯͢✧ 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡*
+*⎯͢✧━━━━━━━━━━━━━━━✧*`.trim();
 
-        await sock.sendMessage(chatId, { text: botInfo }, { quoted: message });
+        await sock.sendMessage(chatId, { 
+            text: botInfo 
+        }, { quoted: message });
 
         // 🕊️ Success reaction
         await sock.sendMessage(chatId, {
@@ -68,9 +73,9 @@ async function pingCommand(sock, chatId, message) {
         });
 
         await sock.sendMessage(chatId, {
-            text: '❌ Failed to get bot status.'
+            text: '❌ ⎯͢✧ 𝐅ᴀɪʟᴇᴅ 𝐓ᴏ 𝐆ᴇᴛ 𝐁ᴏᴛ 𝐒ᴛᴀᴛᴜs 🐱'
         });
     }
 }
 
-module.exports = pingCommand;
+module.exports = pingCommand;  
