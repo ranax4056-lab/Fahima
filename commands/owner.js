@@ -3,9 +3,9 @@ const settings = require('../settings');
 async function ownerCommand(sock, chatId, msg) {
     try {
         // ✅ Static Owner info
-        const ownerName = "Shahin Rana"; 
-        const ownerAddress = "Sylhet"; 
-        const ownerReligion = "Islam"; 
+        const ownerName = "⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱"; 
+        const ownerAddress = "𝐒ʏʟʜᴇᴛ"; 
+        const ownerReligion = "𝐈sʟᴀᴍ"; 
 
         // ✅ Dynamic number
         const ownerNumber = settings.ownerNumber + "@s.whatsapp.net";
@@ -20,18 +20,18 @@ async function ownerCommand(sock, chatId, msg) {
 
         // ✅ Stylish Owner Card
         const ownerText = `
-╭━━━〔 👑 𝐎𝐖𝐍𝐄𝐑 𝐂𝐀𝐑𝐃 〕━━━⬣
-┃ 🧑‍💼 𝗡𝗮𝗺𝗲      : 𝐒𝐡𝐚𝐡𝐢𝐧 𝐑𝐚𝐧𝐚
-┃ 🌍 𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻 : 𝐒𝐲𝐥𝐡𝐞𝐭
-┃ 🕌 𝗥𝗲𝗹𝗶𝗴𝗶𝗼𝗻 : 𝐈𝐬𝐥𝐚𝐦
-┃ 📲 𝗡𝘂𝗺𝗯𝗲𝗿   : *@${settings.ownerNumber}*
-┣━━━━━━━━━━━━━━━━━━⬣
-┃ 🚀 𝗥𝗼𝗹𝗲   : 𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫
-┃ 🧠 𝗙𝗼𝗰𝘂𝘀  : 𝐂𝐨𝐝𝐢𝐧𝐠 & 𝐈𝐧𝐧𝐨𝐯𝐚𝐭𝐢𝐨𝐧
-┃ 🌌 𝗩𝗶𝗯𝗲   : 𝐒𝐢𝐦𝐩𝐥𝐞 • 𝐂𝐥𝐞𝐚𝐧 • 𝐏𝐫𝐨
-╰━━━━━━━━━━━━━━━━━━⬣
+⎯͢✧👑 𝐎ᴡɴᴇʀ 𝐂ᴀʀᴅ 🐱
+┃🧑‍💼 𝐍ᴀᴍᴇ : ${ownerName}
+┃🌍 𝐋ᴏᴄᴀᴛɪᴏɴ : ${ownerAddress}
+┃🕌 𝐑ᴇʟɪɢɪᴏɴ : ${ownerReligion}
+┃📲 𝐍ᴜᴍʙᴇʀ : *@${settings.ownerNumber}*
+⎯͢✧━━━━━━━━━━━━━━━✧
+┃🚀 𝐑ᴏʟᴇ : 𝐁ᴏᴛ 𝐎ᴡɴᴇʀ
+┃🧠 𝐅ᴏᴄᴜs : 𝐂ᴏᴅɪɴɢ & 𝐈ɴɴᴏᴠᴀᴛɪᴏɴ
+┃🌌 𝐕ɪʙᴇ : 𝐒ɪᴍᴘʟᴇ • 𝐂ʟᴇᴀɴ • 𝐏ʀᴏ
+⎯͢✧━━━━━━━━━━━━━━━✧
 
-> 👑 ρσωєʀє∂ ву ѕнαнιη яαηα
+«👑 ⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱»
 `.trim();
 
         // ✅ vCard send (save contact option)
