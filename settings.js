@@ -2,7 +2,7 @@ const settings = {
   packname: '*⎯͢✧🫣 𝐒ʜꫝʜɪɴᥫ᭡ 🐱*',
   author: '‎',
   botName: "*⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐁ᴏᴛ*🐱",
-  botOwner: '*⎯͢✧😌 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱*', // Your name
+  botOwner: '*⎯͢✧👑 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱*', // Your name
   ownerNumber: '8801742564047', //Set your number here without + symbol, just add country code & number without any space
   giphyApiKey: 'qnl7ssQChTdPjsKta2Ax2LMaGXz303tq',
   commandMode: "public",
