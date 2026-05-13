@@ -1,3 +1,5 @@
+ const settings = require('../settings');
+
 // ================= MANUAL DEMOTE COMMAND =================
 async function demoteCommand(sock, chatId, mentionedJids, message) {
     let userToDemote = [];
@@ -10,7 +12,7 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
 
     if (userToDemote.length === 0) {
         await sock.sendMessage(chatId, {
-            text: 'Please mention the user or reply to their message to demote!'
+            text: '⎯͢✧👑 𝐌ᴇɴᴛɪᴏɴ 𝐎ʀ 𝐑ᴇᴘʟʏ 𝐀 𝐔sᴇʀ 🐱'
         });
         return;
     }
@@ -18,35 +20,34 @@ async function demoteCommand(sock, chatId, mentionedJids, message) {
     try {
         await sock.groupParticipantsUpdate(chatId, userToDemote, "demote");
 
-        const usernames = userToDemote.map(jid => `@${jid.split('@')[0]}`);
+        const demotedUsers = userToDemote.map(jid => `@${jid.split('@')[0]}`);
         const promoterJid = sock.user.id;
         const adminTag = `@${promoterJid.split('@')[0]}`;
 
         const groupMeta = await sock.groupMetadata(chatId);
-        const groupName = groupMeta.subject || 'Unknown Group';
-
-        const ownerJid =
-            groupMeta.owner ||
-            groupMeta.participants.find(p => p.admin === 'superadmin')?.id;
-
-        const ownerTag = ownerJid ? `@${ownerJid.split('@')[0]}` : 'Not Found';
+        const groupName = groupMeta.subject || '𝐔ɴᴋɴᴏᴡɴ 𝐆ʀᴏᴜᴘ';
 
         const demoteMessage =
-`╭══〔 *⚡ Admin Event* 〕
-┋●➪ ${adminTag} has demoted ${demotedUsers.join(', ')}
-┃●➪ Group: ${groupName}
-┋●➪ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
-┃●➪ 😢*уσυ ∂ємσтє∂ вєттєя ℓυ¢к ηєχт тιмє* 😞         
-╰─➤ Powered by ~⎯͢⎯⃝🩷➪‎‎‎Shahin Rana♡●➪`;
-      
+`⎯͢✧⚡ 𝐀ᴅᴍɪɴ 𝐄ᴠᴇɴᴛ 🐱
+⎯͢✧━━━━━━━━━━━━━━━✧
+┃👑 ${adminTag} 𝐃ᴇᴍᴏᴛᴇᴅ ${demotedUsers.join(', ')}
+┃💬 𝐆ʀᴏᴜᴘ : ${groupName}
+⎯͢✧━━━━━━━━━━━━━━━✧
+┃😢 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏ 𝐋ᴏɴɢᴇʀ 𝐀𝐧 𝐀ᴅᴍɪɴ
+┃💔 𝐁ᴇᴛᴛᴇʀ 𝐋ᴜᴄᴋ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ
+⎯͢✧━━━━━━━━━━━━━━━✧
+› 👑 ⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱`;
+
         await sock.sendMessage(chatId, {
             text: demoteMessage,
-            mentions: [...userToDemote, promoterJid, ownerJid].filter(Boolean)
+            mentions: [...userToDemote, promoterJid].filter(Boolean)
         });
 
     } catch (error) {
         console.error('Error in demote command:', error);
-        await sock.sendMessage(chatId, { text: 'Failed to demote user(s)!' });
+        await sock.sendMessage(chatId, {
+            text: '⎯͢✧❌ 𝐅ᴀɪʟᴇᴅ 𝐓ᴏ 𝐃ᴇᴍᴏᴛᴇ 🐱'
+        });
     }
 }
 
@@ -56,7 +57,7 @@ async function handleDemotionEvent(sock, groupId, participants, author) {
         if (!Array.isArray(participants) || participants.length === 0) return;
 
         const groupMeta = await sock.groupMetadata(groupId);
-        const groupName = groupMeta.subject || 'Unknown Group';
+        const groupName = groupMeta.subject || '𝐔ɴᴋɴᴏᴡɴ 𝐆ʀᴏᴜᴘ';
 
         const demotedUsers = participants.map(jid => {
             const jidStr = typeof jid === 'string' ? jid : jid.id;
@@ -67,27 +68,24 @@ async function handleDemotionEvent(sock, groupId, participants, author) {
             typeof jid === 'string' ? jid : jid.id
         );
 
-        let adminTag = 'System';
+        let adminTag = '𝐒ʏsᴛᴇᴍ';
+
         if (author) {
             const adminJid = typeof author === 'string' ? author : author.id;
             adminTag = `@${adminJid.split('@')[0]}`;
             mentionList.push(adminJid);
         }
 
-        const ownerJid =
-            groupMeta.owner ||
-            groupMeta.participants.find(p => p.admin === 'superadmin')?.id;
-
-        const ownerTag = ownerJid ? `@${ownerJid.split('@')[0]}` : 'Not Found';
-        if (ownerJid) mentionList.push(ownerJid);
-
         const demoteMessage =
-`╭══〔 *⚡ Admin Event* 〕
-┋●➪ ${adminTag} has demoted ${demotedUsers.join(', ')}
-┃●➪ Group: ${groupName}
-┋●➪ 👑 𝐆𝐫𝐨𝐮𝐩 𝐎𝐰𝐧𝐞𝐫 : ${ownerTag}
-┃●➪ 😢*уσυ ∂ємσтє∂ вєттєя ℓυ¢к ηєχт тιмє* 😞         
-╰─➤ Powered by ~⎯͢⎯⃝🩷➪‎‎‎Shahin Rana♡●➪`;
+`⎯͢✧⚡ 𝐀ᴅᴍɪɴ 𝐄ᴠᴇɴᴛ 🐱
+⎯͢✧━━━━━━━━━━━━━━━✧
+┃👑 ${adminTag} 𝐃ᴇᴍᴏᴛᴇᴅ ${demotedUsers.join(', ')}
+┃💬 𝐆ʀᴏᴜᴘ : ${groupName}
+⎯͢✧━━━━━━━━━━━━━━━✧
+┃😢 𝐘ᴏᴜ 𝐀ʀᴇ 𝐍ᴏ 𝐋ᴏɴɢᴇʀ 𝐀𝐧 𝐀ᴅᴍɪɴ
+┃💔 𝐁ᴇᴛᴛᴇʀ 𝐋ᴜᴄᴋ 𝐍ᴇxᴛ 𝐓ɪᴍᴇ
+⎯͢✧━━━━━━━━━━━━━━━✧
+› 👑 ⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱`;
 
         await sock.sendMessage(groupId, {
             text: demoteMessage,
