@@ -8,17 +8,17 @@ async function aliveCommand(sock, chatId, message) {
 
         const aliveText =
 
-`*╭━━━〔🍓𝐁𝕺𝐓 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃〕━━━✦*
-*┃🌱 𝐂𝐎𝐍𝐍𝐄𝐂𝐓𝐄𝐃 : ${botNumber}*
-*┃👻 𝐏𝐑𝐄𝐅𝐈𝐗 : .*
-*┃🔮 𝐌𝐎𝐃𝐄 : 𝐏𝐫𝐢𝐯𝐚𝐭𝐞*
-*┃🎐 𝐕𝐄𝐑𝐒𝐈𝐎𝐍 : ${settings.version}*
-*┃👑 𝐎𝐖𝐍𝐄𝐑 :*~_🪀𝐗𝐭𝐲𝐥𝐢𝐬𝐡_ღ꙰𝐒𝐡𝐚𝐡𝐢𝐧࿐👑_~*
-*╰━━━━━━━━━━━━━━━━━━╯*
-*╭━━━〔🛠️ 𝗧𝗜𝗣𝗦〕━━━━✦*
-*┃✧ 𝐓𝐘𝐏𝐄 .menu 𝐓𝐎 𝐕𝐈𝐄𝐖 𝐀𝐋𝐋*
-*┃✧ 𝐈𝐍𝐂𝐋𝐔𝐃𝐄𝐒 𝐅𝐔𝐍, 𝐆𝐀𝐌𝐄, 𝐒𝐓𝐘𝐋𝐄*
-*╰━━━━━━━━━━━━━━━━━╯*`;
+`* *⎯͢✧🫣 𝐁ᴏᴛ 𝐂ᴏɴɴᴇᴄᴛᴇᴅ 🐱*
+*┃🌱 𝐂ᴏɴɴᴇᴄᴛᴇᴅ : ${botNumber}*
+*┃👻 𝐏ʀᴇғɪx : .*
+*┃🔮 𝐌ᴏᴅᴇ : 𝐏ʀɪᴠᴀᴛᴇ*
+*┃🎐 𝐕ᴇʀsɪᴏɴ : ${settings.version}*
+*┃👑 𝐎ᴡɴᴇʀ : ⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱*
+*⎯͢✧━━━━━━━━━━━━━━━✧*
+*┃🛠️ 𝗧ɪᴘs :*
+*┃✧ 𝐓ʏᴘᴇ .menu 𝐓ᴏ 𝐕ɪᴇᴡ 𝐀ʟʟ*
+*┃✧ 𝐅ᴜɴ, 𝐆ᴀᴍᴇ, 𝐒ᴛʏʟᴇ 𝐂ᴏᴍᴍᴀɴᴅs*
+*⎯͢✧━━━━━━━━━━━━━━━✧*`;
 
         await sock.sendMessage(chatId, {
 
@@ -34,7 +34,7 @@ async function aliveCommand(sock, chatId, message) {
 
                     newsletterJid: '120363161513685998@newsletter',
 
-                    newsletterName: 'SHAHIN RANA',
+                    newsletterName: '⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱',
 
                     serverMessageId: -1
 
@@ -52,7 +52,7 @@ async function aliveCommand(sock, chatId, message) {
 
             chatId,
 
-            { text: "🤖 Bot is connected and running!" },
+            { text: "🤖 𝐁ᴏᴛ ɪs 𝐂ᴏɴɴᴇᴄᴛᴇᴅ 𝐀ɴᴅ 𝐑ᴜɴɴɪɴɢ!" },
 
             { quoted: message }
 
