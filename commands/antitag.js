@@ -1,87 +1,165 @@
-const { setAntitag, getAntitag, removeAntitag } = require('../lib/index');
+ const { setAntitag, getAntitag, removeAntitag } = require('../lib/index');
 const isAdmin = require('../lib/isAdmin');
 
 async function handleAntitagCommand(sock, chatId, userMessage, senderId, isSenderAdmin, message) {
+
     try {
+
         if (!isSenderAdmin) {
-            await sock.sendMessage(chatId, { text: '```For Group Admins Only!```' },{quoted :message});
+
+            await sock.sendMessage(chatId, {
+                text: '⎯͢✧❌ 𝐅ᴏʀ 𝐆ʀᴏᴜᴘ 𝐀ᴅᴍɪɴs 𝐎ɴʟʏ 🐱'
+            }, { quoted: message });
+
             return;
         }
 
         const prefix = '.';
+
         const args = userMessage.slice(9).toLowerCase().trim().split(' ');
+
         const action = args[0];
 
         if (!action) {
-            const usage = `\`\`\`ANTITAG SETUP\n\n${prefix}antitag on\n${prefix}antitag set delete | kick\n${prefix}antitag off\n\`\`\``;
-            await sock.sendMessage(chatId, { text: usage },{quoted :message});
+
+            const usage = `
+⎯͢✧🛡️ 𝐀ɴᴛɪᴛᴀɢ 𝐒ᴇᴛᴜᴘ 🐱
+
+▢ ${prefix}antitag 𝐎ɴ
+▢ ${prefix}antitag 𝐒ᴇᴛ 𝐃ᴇʟᴇᴛᴇ | 𝐊ɪᴄᴋ
+▢ ${prefix}antitag 𝐎ғғ
+`;
+
+            await sock.sendMessage(chatId, {
+                text: usage
+            }, { quoted: message });
+
             return;
         }
 
         switch (action) {
+
             case 'on':
+
                 const existingConfig = await getAntitag(chatId, 'on');
+
                 if (existingConfig?.enabled) {
-                    await sock.sendMessage(chatId, { text: '*_Antitag is already on_*' },{quoted :message});
+
+                    await sock.sendMessage(chatId, {
+                        text: '⎯͢✧⚠️ 𝐀ɴᴛɪᴛᴀɢ 𝐀ʟʀᴇᴀᴅʏ 𝐎ɴ 🐱'
+                    }, { quoted: message });
+
                     return;
                 }
+
                 const result = await setAntitag(chatId, 'on', 'delete');
-                await sock.sendMessage(chatId, { 
-                    text: result ? '*_Antitag has been turned ON_*' : '*_Failed to turn on Antitag_*' 
-                },{quoted :message});
+
+                await sock.sendMessage(chatId, {
+                    text: result
+                        ? '⎯͢✧✅ 𝐀ɴᴛɪᴛᴀɢ 𝐓ᴜʀɴᴇᴅ 𝐎ɴ 🐱'
+                        : '⎯͢✧❌ 𝐅ᴀɪʟᴇᴅ 𝐓ᴏ 𝐄ɴᴀʙʟᴇ 🐱'
+                }, { quoted: message });
+
                 break;
 
             case 'off':
+
                 await removeAntitag(chatId, 'on');
-                await sock.sendMessage(chatId, { text: '*_Antitag has been turned OFF_*' },{quoted :message});
+
+                await sock.sendMessage(chatId, {
+                    text: '⎯͢✧❎ 𝐀ɴᴛɪᴛᴀɢ 𝐓ᴜʀɴᴇᴅ 𝐎ғғ 🐱'
+                }, { quoted: message });
+
                 break;
 
             case 'set':
+
                 if (args.length < 2) {
-                    await sock.sendMessage(chatId, { 
-                        text: `*_Please specify an action: ${prefix}antitag set delete | kick_*` 
-                    },{quoted :message});
+
+                    await sock.sendMessage(chatId, {
+                        text: `
+⎯͢✧⚙️ 𝐔sᴀɢᴇ 🐱
+
+▢ ${prefix}antitag set 𝐃ᴇʟᴇᴛᴇ
+▢ ${prefix}antitag set 𝐊ɪᴄᴋ
+`
+                    }, { quoted: message });
+
                     return;
                 }
+
                 const setAction = args[1];
+
                 if (!['delete', 'kick'].includes(setAction)) {
-                    await sock.sendMessage(chatId, { 
-                        text: '*_Invalid action. Choose delete or kick._*' 
-                    },{quoted :message});
+
+                    await sock.sendMessage(chatId, {
+                        text: `
+⎯͢✧❌ 𝐈ɴᴠᴀʟɪᴅ 𝐀ᴄᴛɪᴏɴ 🐱
+
+▢ 𝐔sᴇ : 𝐃ᴇʟᴇᴛᴇ | 𝐊ɪᴄᴋ
+`
+                    }, { quoted: message });
+
                     return;
                 }
+
                 const setResult = await setAntitag(chatId, 'on', setAction);
-                await sock.sendMessage(chatId, { 
-                    text: setResult ? `*_Antitag action set to ${setAction}_*` : '*_Failed to set Antitag action_*' 
-                },{quoted :message});
+
+                await sock.sendMessage(chatId, {
+                    text: setResult
+                        ? `⎯͢✧✅ 𝐀ɴᴛɪᴛᴀɢ 𝐀ᴄᴛɪᴏɴ 𝐒ᴇᴛ 𝐓ᴏ ${setAction.toUpperCase()} 🐱`
+                        : '⎯͢✧❌ 𝐅ᴀɪʟᴇᴅ 🐱'
+                }, { quoted: message });
+
                 break;
 
             case 'get':
+
                 const status = await getAntitag(chatId, 'on');
+
                 const actionConfig = await getAntitag(chatId, 'on');
-                await sock.sendMessage(chatId, { 
-                    text: `*_Antitag Configuration:_*\nStatus: ${status ? 'ON' : 'OFF'}\nAction: ${actionConfig ? actionConfig.action : 'Not set'}` 
-                },{quoted :message});
+
+                await sock.sendMessage(chatId, {
+                    text: `
+⎯͢✧📊 𝐀ɴᴛɪᴛᴀɢ 𝐂ᴏɴғɪɢ 🐱
+
+▢ 𝐒ᴛᴀᴛᴜs : ${status ? '𝐎𝐍' : '𝐎𝐅𝐅'}
+▢ 𝐀ᴄᴛɪᴏɴ : ${actionConfig ? actionConfig.action.toUpperCase() : '𝐍ᴏᴛ 𝐒ᴇᴛ'}
+`
+                }, { quoted: message });
+
                 break;
 
             default:
-                await sock.sendMessage(chatId, { text: `*_Use ${prefix}antitag for usage._*` },{quoted :message});
+
+                await sock.sendMessage(chatId, {
+                    text: `⎯͢✧ℹ️ 𝐔sᴇ ${prefix}antitag 🐱`
+                }, { quoted: message });
+
         }
+
     } catch (error) {
+
         console.error('Error in antitag command:', error);
-        await sock.sendMessage(chatId, { text: '*_Error processing antitag command_*' },{quoted :message});
+
+        await sock.sendMessage(chatId, {
+            text: '⎯͢✧❌ 𝐄ʀʀᴏʀ 𝐏ʀᴏᴄᴇssɪɴɢ 𝐀ɴᴛɪᴛᴀɢ 🐱'
+        }, { quoted: message });
+
     }
 }
 
 async function handleTagDetection(sock, chatId, message, senderId) {
+
     try {
+
         const antitagSetting = await getAntitag(chatId, 'on');
+
         if (!antitagSetting || !antitagSetting.enabled) return;
 
-        // Get mentioned JIDs from contextInfo (proper mentions)
-        const mentionedJids = message.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
-        
-        // Extract text from all possible message types
+        const mentionedJids =
+            message.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
+
         const messageText = (
             message.message?.conversation ||
             message.message?.extendedTextMessage?.text ||
@@ -90,54 +168,65 @@ async function handleTagDetection(sock, chatId, message, senderId) {
             ''
         );
 
-        // Find all @mentions in text using improved regex
-        // Matches: @123456789, @⁨+91 70239 51514⁩, @~.., @217875470114951, etc.
-        const textMentions = messageText.match(/@[\d+\s\-()~.]+/g) || [];
-        
-        // Also match numeric-only mentions (like @217875470114951)
-        const numericMentions = messageText.match(/@\d{10,}/g) || [];
-        
-        // Combine all mentions and remove duplicates
-        const allMentions = [...new Set([...mentionedJids, ...textMentions, ...numericMentions])];
-        
-        // Count unique numeric mentions (bot tagall patterns)
+        const textMentions =
+            messageText.match(/@[\d+\s\-()~.]+/g) || [];
+
+        const numericMentions =
+            messageText.match(/@\d{10,}/g) || [];
+
+        const allMentions = [
+            ...new Set([
+                ...mentionedJids,
+                ...textMentions,
+                ...numericMentions
+            ])
+        ];
+
         const uniqueNumericMentions = new Set();
+
         numericMentions.forEach(mention => {
+
             const numMatch = mention.match(/@(\d+)/);
-            if (numMatch) uniqueNumericMentions.add(numMatch[1]);
+
+            if (numMatch) {
+                uniqueNumericMentions.add(numMatch[1]);
+            }
+
         });
-        
-        // Count mentions from mentionedJid array (proper WhatsApp mentions)
+
         const mentionedJidCount = mentionedJids.length;
-        
-        // Count unique numeric mentions found in text (bot tagall pattern)
+
         const numericMentionCount = uniqueNumericMentions.size;
-        
-        // Use the higher count (either proper mentions or text-based mentions)
-        // This ensures we catch both standard mentions and bot tagall patterns
-        const totalMentions = Math.max(mentionedJidCount, numericMentionCount);
 
-        // Check if it's a group message and has multiple mentions
+        const totalMentions = Math.max(
+            mentionedJidCount,
+            numericMentionCount
+        );
+
         if (totalMentions >= 3) {
-            // Get group participants to check if it's tagging most/all members
+
             const groupMetadata = await sock.groupMetadata(chatId);
+
             const participants = groupMetadata.participants || [];
-            
-            // If mentions are more than 50% of group members, consider it as tagall
-            const mentionThreshold = Math.ceil(participants.length * 0.5);
-            
-            // Also check if there are many numeric mentions in the text (bot tagall pattern)
-            // This catches bots that use numeric IDs instead of proper mentions
-            const hasManyNumericMentions = numericMentionCount >= 10 || 
-                                          (numericMentionCount >= 5 && numericMentionCount >= mentionThreshold);
-            
-            // Trigger if: standard mentions exceed threshold OR many numeric mentions detected
-            if (totalMentions >= mentionThreshold || hasManyNumericMentions) {
-                
-                const action = antitagSetting.action || 'delete';
-                
+
+            const mentionThreshold =
+                Math.ceil(participants.length * 0.5);
+
+            const hasManyNumericMentions =
+                numericMentionCount >= 10 ||
+                (numericMentionCount >= 5 &&
+                 numericMentionCount >= mentionThreshold);
+
+            if (
+                totalMentions >= mentionThreshold ||
+                hasManyNumericMentions
+            ) {
+
+                const action =
+                    antitagSetting.action || 'delete';
+
                 if (action === 'delete') {
-                    // Delete the message
+
                     await sock.sendMessage(chatId, {
                         delete: {
                             remoteJid: chatId,
@@ -146,14 +235,19 @@ async function handleTagDetection(sock, chatId, message, senderId) {
                             participant: senderId
                         }
                     });
-                    
-                    // Send warning
+
                     await sock.sendMessage(chatId, {
-                        text: `⚠️ *Tagall Detected!*.`
+                        text: `
+⎯͢✧⚠️ 𝐓ᴀɢᴀʟʟ 𝐃ᴇᴛᴇᴄᴛᴇᴅ 🐱
+
+▢ 𝐌ᴀss 𝐓ᴀɢɢɪɴɢ 𝐈s 𝐍ᴏᴛ 𝐀ʟʟᴏᴡᴇᴅ
+`
                     }, { quoted: message });
-                    
-                } else if (action === 'kick') {
-                    // First delete the message
+
+                }
+
+                else if (action === 'kick') {
+
                     await sock.sendMessage(chatId, {
                         delete: {
                             remoteJid: chatId,
@@ -163,20 +257,34 @@ async function handleTagDetection(sock, chatId, message, senderId) {
                         }
                     });
 
-                    // Then kick the user
-                    await sock.groupParticipantsUpdate(chatId, [senderId], "remove");
+                    await sock.groupParticipantsUpdate(
+                        chatId,
+                        [senderId],
+                        "remove"
+                    );
 
-                    // Send notification
-                    const usernames = [`@${senderId.split('@')[0]}`];
+                    const usernames = [
+                        `@${senderId.split('@')[0]}`
+                    ];
+
                     await sock.sendMessage(chatId, {
-                        text: `🚫 *Antitag Detected!*\n\n${usernames.join(', ')} has been kicked for tagging all members.`,
+                        text: `
+⎯͢✧🚫 𝐀ɴᴛɪᴛᴀɢ 𝐃ᴇᴛᴇᴄᴛᴇᴅ 🐱
+
+▢ ${usernames.join(', ')} 𝐇ᴀs 𝐁ᴇᴇɴ 𝐊ɪᴄᴋᴇᴅ
+▢ 𝐑ᴇᴀsᴏɴ : 𝐓ᴀɢɢɪɴɢ 𝐀ʟʟ 𝐌ᴇᴍʙᴇʀs
+`,
                         mentions: [senderId]
                     }, { quoted: message });
+
                 }
             }
         }
+
     } catch (error) {
+
         console.error('Error in tag detection:', error);
+
     }
 }
 
@@ -184,4 +292,5 @@ module.exports = {
     handleAntitagCommand,
     handleTagDetection
 };
+    
 
