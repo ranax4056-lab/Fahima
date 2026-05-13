@@ -2,7 +2,6 @@ const isAdmin = require('../lib/isAdmin');
 
 async function tagAllCommand(sock, chatId, senderId, message) {
     try {
-        // Group metadata
         const groupMetadata = await sock.groupMetadata(chatId);
         const members = groupMetadata.participants;
 
@@ -15,11 +14,13 @@ async function tagAllCommand(sock, chatId, senderId, message) {
         let count = 1;
 
         let messageText = `
-🕊️ 𝗚ʀσυρ : ${groupMetadata.subject}
-🕊️ мємвєяѕ : ${members.length}
-🕊️ мєѕѕαgє : 💗💗 αттєηтιση єνєяуσηє! 💗!💗
+⎯͢✧🫣 𝐆ʀᴏᴜᴘ 𝐓ᴀɢ 𝐀ʟʟ 🐱
+⎯͢✧━━━━━━━━━━━━━━━✧
+▢ 𝐆ʀᴏᴜᴘ : ${groupMetadata.subject}
+▢ 𝐌ᴇᴍʙᴇʀ : ${members.length}
+▢ 𝐍ᴏᴛɪᴄᴇ : 💗 𝐀ᴛᴛᴇɴᴛɪᴏɴ 𝐄ᴠᴇʀʏᴏɴᴇ 💗
 
-╭┈─「 ɦเ αℓℓ ƒɾเεɳ∂ร 🥰 」┈❍
+╭┈─「 👑 𝐀ʟʟ 𝐌ᴇᴍʙᴇʀs 」┈❍
 `;
 
         for (let m of members) {
@@ -28,10 +29,13 @@ async function tagAllCommand(sock, chatId, senderId, message) {
             count++;
         }
 
-        messageText += `╰────────────❍
+        messageText += `
+╰────────────❍
 
-💬 Sent with Love by 𓆩Xtylish-Shahin𓆪 🖤
-💗 Stay Active — Stay Stylish! ✨
+⎯͢✧━━━━━━━━━━━━━━━✧
+💬 𝐒ᴇɴᴛ 𝐁ʏ : ⎯͢✧🫣 𝐒ʜꫝʜɪɴ 𝐑ᴀɴꫝᥫ᭡ 🐱
+💗 𝐒ᴛᴀʏ 𝐀ᴄᴛɪᴠᴇ • 𝐒ᴛᴀʏ 𝐒ᴛʏʟɪsʜ ✨
+⎯͢✧━━━━━━━━━━━━━━━✧
 `;
 
         await sock.sendMessage(chatId, {
@@ -41,10 +45,10 @@ async function tagAllCommand(sock, chatId, senderId, message) {
 
     } catch (error) {
         console.error("❌ TagAll error:", error);
-        await sock.sendMessage(
-            chatId,
-            { text: "⚠ কিছু সমস্যা হয়েছে ভাই! পরে আবার চেষ্টা করো 😅", quoted: message }
-        );
+        await sock.sendMessage(chatId, {
+            text: "⎯͢✧❌ 𝐒ᴏʀʀʏ 𝐄ʀʀᴏʀ 🐱",
+            quoted: message
+        });
     }
 }
 
